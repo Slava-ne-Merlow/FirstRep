@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Создание рассылки</h1>
+<form action="" method="post">
+    {% if available_theme%}
+    {% if lang == 'russ'%}
+        <a class="btn btn-info" href="/mailing/{{order_id}}/russ">Русский</a>
+        <a class="btn btn-light" href="/mailing/{{order_id}}/eng">Английский</a>
+    {% elif lang == 'eng' %}
+        <a class="btn btn-light" href="/mailing/{{order_id}}/russ">Русский</a>
+        <a class="btn btn-info" href="/mailing/{{order_id}}/eng">Английский</a>
+    {% endif %}
+    {{ form.hidden_tag() }}
+      {% endif %}
+    <p>
+
+        {{ form.mail_theme.label }}<br>
+        {{ form.mail_theme(class="form-control") }}<br>
+        {% for error in form.mail_theme.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+    </p>
+
+
+    <p>
+        {{ form.mail_text.label }}<br>
+        {{ form.mail_text(class="form-control") }}<br>
+        {% for error in form.mail_text.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+        <p>{{form.choices}}</p>
+
+    <p>
+            {{form.submit(type="submit", class="btn btn-primary") }}
+            <a class="btn btn-dark" href="/">Назад</a>
+
+        </p>
+    </p>
+    {{message}}
+</form>
+{% endblock %}

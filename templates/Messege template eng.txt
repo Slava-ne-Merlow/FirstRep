@@ -1,0 +1,12 @@
+Request for delivery costs  № theme_
+
+Good day,
+I kindly ask you to calculate delivery costs and give your proposal.
+Shipment details:
+Pick up address: start_address
+Delivery address: end_address
+Weight: weight_ kg
+Dimensions: dimensions_
+Colli: quantity_
+Additional information:
+content_

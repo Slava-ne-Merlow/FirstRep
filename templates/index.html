@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated%}
+<h1>Доступные заказы</h1>
+{% for item in news%}
+<div class="col-md6 border rounded">
+    <h2>Номер поставки - {{item.invoice_numbers}}</h2>
+
+    <div>
+        Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
+    </div>
+    <div>
+        Адрес отгрузки - {{item.start_address}}, Дата написания - {{item.end_address}}
+    </div>
+    {% if current_user.is_authenticated and current_user == item.user %}
+    <div>
+        <a href="/orders/{{ item.id }}" class="btn btn-info">
+            Изменить
+        </a>
+        <a href="/orders_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+        <a href="/mailing/{{item.id }}/russ" class="btn btn-primary">
+            Оповестить на почту
+        </a>
+        <a href="/answer_print/{{item.id }}" class="btn btn-primary">
+            Посмотреть ответы
+        </a>
+    </div>
+
+    {% elif current_user.is_authenticated and current_user.user_type == 'Админ' %}
+    <a href="/answer_print/{{item.id}}" class="btn btn-primary">
+            Посмотреть ответы
+        </a>
+    {% endif %}
+
+</div>
+
+{% endfor %}
+<br>
+{% if current_user.is_authenticated and current_user.user_type == 'Мэнеджер' %}
+    <a href="/orders" class="btn btn-secondary">Добавить заказ</a>
+{% endif %}
+{% if current_user.is_authenticated and current_user.user_type == 'Админ' %}
+    <a href="/forwarders_view" class="btn btn-secondary">Доступные первозчики</a>
+{% endif %}
+{% else%}
+    <h2>Для просмотра необходимо авторизоваться</h2>
+{% endif %}
+
+{% endblock %}

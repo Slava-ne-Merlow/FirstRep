@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if not dic %}
+<h1>Доступных перевозчиков нет</h1>
+{% else %}
+{% for item in dic.keys()%}
+<div class="col-md6 border rounded">
+    <h2>Представитель компании {{item}}</h2>
+    {% for m in dic[item]%}
+    <div>
+        {{m}}
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endfor %}
+{% endif %}
+
+<br>
+<a class="btn btn-dark" href="/">Назад</a>
+<a class="btn btn-success" href="/forwarders">Добавить перевозчика</a>
+
+<br>
+{% endblock %}

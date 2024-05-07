@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if not news %}
+<h1>Ответов на почте нет</h1>
+{% else %}
+{% for item in news.keys()%}
+<div class="col-md6 border rounded">
+    <h1>Переписка с {{item}}</h1>
+    {% for massage in news[item]%}
+
+    <div class="col-md6 border rounded">
+        {% if massage['From'] == 'slava.kush39@gmail.com'%}
+            <h2>Письмо от Вас</h2>
+        {% else %}
+            <h2>Письмо Вам</h2>
+        {% endif %}
+
+        <h2>Тема письма {{massage['Subject']}}</h2>
+        <div>
+            {{massage['Text']}}
+        </div>
+    </div>
+    {% if loop.last and current_user.is_authenticated and current_user.user_type != 'Админ' %}
+
+    <a class="btn btn-primary" href="/mailing2/{{massage['id']}}/{{massage['Folder'].replace('/', 'slash')}}">Написать</a>
+    {% endif %}
+    {% endfor %}
+
+
+</div>
+
+{% endfor %}
+{% endif %}
+
+
+<br>
+<a class="btn btn-dark" href="/">Назад</a>
+<br>
+{% endblock %}
