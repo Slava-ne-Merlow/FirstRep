@@ -13,6 +13,7 @@ def answers_by_subject(theme:str, folder:str):
     imap = imaplib.IMAP4_SSL(SMTP_SERVER)
 
     imap.login(FROM_EMAIL, FROM_PWD)
+
     if folder == 'INBOX':
         imap.select('INBOX')
     elif folder == 'OUTBOX':
