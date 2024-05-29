@@ -19,7 +19,8 @@ import quopri
 from email.header import decode_header
 
 
-
+#osteccorporation@gmail.com
+# pnor qdfq ncdc egnu
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
@@ -295,8 +296,8 @@ def mailing(order_id, lang):
             mails.append(current_user)
 
 
-            sender = "slava.kush39@gmail.com"
-            password = "iqpk evew sdkm zxml"
+            sender = "osteccorporation@gmail.com"
+            password = "pnor qdfq ncdc egnu"
 
             server = smtplib.SMTP("smtp.gmail.com", 587)
             server.starttls()
@@ -325,8 +326,8 @@ def mailing2(message_id, folder):
     form.choices.query = []
     available_theme = False
     if request.method == "GET":
-        FROM_EMAIL = "slava.kush39@gmail.com"
-        FROM_PWD = "iqpk evew sdkm zxml"
+        FROM_EMAIL = "osteccorporation@gmail.com"
+        FROM_PWD = "pnor qdfq ncdc egnu"
         SMTP_SERVER = "imap.gmail.com"
 
         imap = imaplib.IMAP4_SSL(SMTP_SERVER)
@@ -352,8 +353,8 @@ def mailing2(message_id, folder):
 
     if request.method == "POST":
         print('xpmzm')
-        sender = "slava.kush39@gmail.com"
-        password = "iqpk evew sdkm zxml"
+        sender = "osteccorporation@gmail.com"
+        password = "pnor qdfq ncdc egnu"
         SMTP_SERVER = "imap.gmail.com"
 
         server = smtplib.SMTP("smtp.gmail.com", 587)

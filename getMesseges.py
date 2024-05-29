@@ -6,8 +6,8 @@ from email.header import decode_header
 
 
 def answers_by_subject(theme:str, folder:str):
-    FROM_EMAIL = "slava.kush39@gmail.com"
-    FROM_PWD = "iqpk evew sdkm zxml"
+    FROM_EMAIL = "osteccorporation@gmail.com"
+    FROM_PWD = "pnor qdfq ncdc egnu"
     SMTP_SERVER = "imap.gmail.com"
 
     imap = imaplib.IMAP4_SSL(SMTP_SERVER)
