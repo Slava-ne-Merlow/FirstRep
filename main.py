@@ -404,6 +404,6 @@ def main():
     # db_sess: Session = db_session.create_session()()
     app.run(port=8000)
 
-
+# Абоба абоба
 if __name__ == '__main__':
     main()
